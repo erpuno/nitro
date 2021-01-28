@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="src/tags.fs" />
+    <Compile Include="src/elements.fs" />
+    <Compile Include="src/javascript.fs" />
+    <Compile Include="src/proto.fs" />
+    <Compile Include="src/program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="etf" Version="1.0.1" />
+    <PackageReference Include="ws" Version="1.0.8" />
+  </ItemGroup>
+
+</Project>
