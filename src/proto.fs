@@ -10,7 +10,7 @@ module Proto =
         | Message of Term * Map<string, string>
         | Error   of string
         | Init    of string
-        | Nothing
+        | Ok
 
     let readQuery : Term -> (string * string) option = function
         | Term.Tuple [Term.Atom name; Term.String value] -> Some (name, value)
@@ -29,7 +29,7 @@ module Proto =
             | Term.Error err -> Nitro.Error err
             | _ -> Nitro.Error "unknown term"
         | Text (Prefix "N2O," token) -> Init token
-        | Nope -> Nothing
+        | Nope -> Ok
         | _ -> Nitro.Error "unknown message"
 
     let nitroProto (router : Req -> Nitro -> Msg) =
