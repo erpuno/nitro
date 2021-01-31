@@ -10,9 +10,9 @@ module Program =
                                                Postback = Atom "send" })
             |> update "send"
         | Message (Atom "send", query) ->
-          match query.TryFind "msg" with
-          | Some value -> insertBottom "hist" (div [] [Elem.Liter value])
-          | None -> Nope
+            match query.TryFind "msg" with
+            | Some value -> insertBottom "hist" (div [] [Elem.Liter value])
+            | None -> Nope
         | _ -> Nope
 
     let about : Nitro -> Msg = function
