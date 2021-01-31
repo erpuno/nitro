@@ -5,7 +5,7 @@ open NITRO
 module Program =
 
     let index : Nitro -> Msg = function
-        | Init ->
+        | Init token ->
             Elem.Button ("send", [], "Send", { Source = ["msg"]; Kind = "click";
                                                Postback = Atom "send" })
             |> update "send"
@@ -16,7 +16,7 @@ module Program =
         | _ -> Nope
 
     let about : Nitro -> Msg = function
-        | Init -> updateText "app" "This is the N2O Hello World App"
+        | Init token -> updateText "app" "This is the N2O Hello World App"
         | _ -> Nope
 
     let router (req : Req) : Nitro -> Msg =
